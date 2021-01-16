@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('./partials/head.ejs') %>
+
+<body>
+
+    <%- include('./partials/header.ejs') %>
+
+
+    <div id="tripleItemGrid">
+        <%- include('./partials/leftSideBar.ejs') %>
+
+        <div>
+            <div class="info">
+                <h2>editar</h2>
+
+                
+                <form action="/ruedaDeVidaMetas" method="POST">
+                    <label for="crecimiento_personalM">Crecimiento Personal:</label>
+                    <input type="text" id="addInput" name ="crecimiento_personalM" required>
+                    <label for="negocios_estudiosM">Negocios/Estudios:</label>
+                    <input type="text" id="addInput"  name="negocios_estudiosM" required>
+                    <label for="familiaM">Familia:</label>
+                    <input type="text" id="addInput"  name="familiaM" required>
+                    <label for="saludM">Salud:</label>
+                    <input type="text" id="addInput"  name="saludM" required>
+                    <label for="amigosM">Amigos:</label>
+                    <input type="text" id="addInput"  name="amigosM" required>
+                    <label for="recreacion_diversionM">Recreacion/Diversión:</label>
+                    <input type="text" id="addInput"  name="recreacion_diversionM" required>        
+                    <label for="amorM">Amor:</label>
+                    <input type="text" id="addInput"  name="amorM" required>
+                    <label for="contribucionM">Contribución:</label>
+                    <input type="text" id="addInput"  name="contribucionM" required>
+                    <label for="finanzasM">Finanzas:</label>
+                    <input type="text" id="addInput"  name="finanzasM" required>
+                    <label for="espiritualM">Espiritual:</label>
+                    <input type="text" id="addInput"  name="espiritualM" required>
+                    <button id="addButton"> Agregar  </button>
+                </form>
+        </div>
+        <%- include('./partials/rightSideBar.ejs') %>
+
+
+    </div>
+</div>
+<%- include('./partials/scripts.ejs') %> 
+
+</body>
+
+</html>

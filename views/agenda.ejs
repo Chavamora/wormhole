@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('./partials/head.ejs') %>
+
+<body>
+
+    <%- include('./partials/header.ejs') %>
+
+
+    <div id="tripleItemGrid">
+        <%- include('./partials/leftSideBar.ejs') %>
+        <div>
+          
+            <div class="info">
+                <table id="agenda">
+                    <tr>
+                        <td colspan="3">
+                            <?php $fcha = date("Y-m-d");?>
+                            <input type="date" class="form-control"  value="<?php echo $fcha;?>" >
+                        </td>
+                    </tr>
+                    <tr id="agenda-tr">
+                        <td rowspan="2" id="agenda-td">
+                            Calendario actividades
+                        </td>
+                        <td id="agenda-td">
+                            Metas del día
+                        </td>
+                        <td rowspan="3" id="agenda-td">
+                            Reflexión del día
+                            <input type="text">
+                        </td>
+                    </tr>
+                    <tr id="agenda-tr">
+                        <td id="agenda-td">
+                            Motivación
+                            <input type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="agenda-td"> 
+                            Que hacer
+                        </td>
+                        <td id="agenda-td">
+                            Felicidad
+                        </td>
+                    </tr>
+                </table>
+            </div>    
+        </div>
+        <%- include('./partials/rightSideBar.ejs') %>
+    </div>
+</div>
+<%- include('./partials/scripts.ejs') %> 
+
+</body>
+
+</html>

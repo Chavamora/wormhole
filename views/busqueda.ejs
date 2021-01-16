@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('./partials/head.ejs') %>
+
+<body>
+
+    <%- include('./partials/header.ejs') %>
+
+
+    <div id="tripleItemGrid">
+        <%- include('./partials/leftSideBar.ejs') %>
+
+        <div>
+
+
+
+  <div class="info">
+
+
+                
+
+                <h2>Resultados de la búsqueda</h2>
+
+                <%const userfilter = users.filter(user => user.name === busqueda);%>
+
+
+                <% if (userfilter.length > 0) { %>
+                    <% userfilter.forEach(user => { %>
+
+                    <a class="single" href="/users/<%= user._id%>">
+                        <div class="flex-table">
+                            <div class="flex-item">
+                                <p ><%=user.name%></p>
+                            </div>
+                            <div class="flex-item">
+                                <p ><%=user.email%></p>
+                            </div>
+                        </div>   
+                    </a>
+                   
+
+                    <% }) %>
+                  
+                <% } else { %>
+                    <p> No hay usuarios que mostrar ):</p>
+               
+                <% } %>
+            </div>
+            
+        </div>
+        <%- include('./partials/rightSideBar.ejs') %>
+
+
+    </div>
+</div>
+<%- include('./partials/scripts.ejs') %> 
+
+</body>
+
+</html>

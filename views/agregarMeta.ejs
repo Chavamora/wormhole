@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('./partials/head.ejs') %>
+
+<body>
+
+    <%- include('./partials/header.ejs') %>
+
+
+    <div id="tripleItemGrid">
+        <%- include('./partials/leftSideBar.ejs') %>
+
+        <div>
+            <div class="info">
+                <form action="/planDeVida" method="POST">
+                    <label for="responsable">responsable:</label>
+                    <input type="text" id="addInput" name ="responsable" required>
+                    <label for="prioridad">prioridad:</label>
+                    <input type="text" id="addInput"  name="prioridad" required>
+                    <label for="estado">estado:</label>
+                    <input type="text" id="addInput"  name="estado" required>
+                    <label for="fecha_inicio">fecha de inicio:</label>
+                    <input type="text" id="addInput"  name="fecha_inicio" required>
+                    <label for="fecha_final">fecha final:</label>
+                    <input type="text" id="addInput"  name="fecha_final" required>
+                    <label for="notas">notas:</label>
+                    <textarea id="notas" name="notas" required></textarea>
+        
+                    <button id="addButton"> Agregar  </button>
+                </form>
+            </div>   
+        </div>
+        <%- include('./partials/rightSideBar.ejs') %>
+
+
+    </div>
+</div>
+<%- include('./partials/scripts.ejs') %> 
+
+</body>
+
+</html>

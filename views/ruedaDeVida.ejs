@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+    <body>
+
+        <%- include('./partials/header.ejs') %>
+
+            <div id="tripleItemGrid" class="p-hidden">
+                <%- include('./partials/leftSideBar.ejs') %>
+                    <div>
+<div class="info">
+
+                        <div class="ruedaDeVida">
+                            <h1 id="title-RuedaDeVida"> Rueda de vida</h1>
+                            <h2> ¿Cómo me encuentro? </h2>
+
+                            <canvas id="ruedaDeVida">
+
+                            </canvas>
+                        </div>
+                        <a href="/ruedaDeVida/editar">editar</a>
+                        <a href="/ruedaDeVida/editarMeta">editar  meta</a>
+
+                    </div>
+                    </div>
+
+                    <p id="crecimiento_personal"><%=ruedaDeVida.crecimiento_personal%></p>
+                    <p id="negocios_estudios"><%=ruedaDeVida.negocios_estudios%></p>
+                    <p id="familia"><%=ruedaDeVida.familia%></p>
+                    <p id="salud"><%=ruedaDeVida.salud%></p>
+                    <p id="amigos"><%=ruedaDeVida.amigos%></p>
+                    <p id="recreacion_diversion"><%=ruedaDeVida.recreacion_diversion%></p>
+                    <p id="amor"><%=ruedaDeVida.amor%></p>
+                    <p id="contribucion"><%=ruedaDeVida.contribucion%></p>
+                    <p id="finanzas"><%=ruedaDeVida.finanzas%></p>
+                    <p id="espiritual"><%=ruedaDeVida.espiritual%></p>
+                    <p id="user_id"><%=ruedaDeVida.user_id%></p>
+
+                    <% if(ruedaDeVidaM) {%>
+                    <p id="crecimiento_personalM"><%=ruedaDeVidaM.crecimiento_personalM%></p>
+                    <p id="negocios_estudiosM"><%=ruedaDeVidaM.negocios_estudiosM%></p>
+                    <p id="familiaM"><%=ruedaDeVidaM.familiaM%></p>
+                    <p id="saludM"><%=ruedaDeVidaM.saludM%></p>
+                    <p id="amigosM"><%=ruedaDeVidaM.amigosM%></p>
+                    <p id="recreacion_diversionM"><%=ruedaDeVidaM.recreacion_diversionM%></p>
+                    <p id="amorM"><%=ruedaDeVidaM.amorM%></p>
+                    <p id="contribucionM"><%=ruedaDeVidaM.contribucionM%></p>
+                    <p id="finanzasM"><%=ruedaDeVidaM.finanzasM%></p>
+                    <p id="espiritualM"><%=ruedaDeVidaM.espiritualM%></p>
+                    <p id="user_id"><%=ruedaDeVidaM.user_id%></p>
+                   <%} else {%>
+                    <p>edita tu ruedaDeVidaM</p>
+                   <%}%>
+
+                    <%- include('./partials/rightSideBar.ejs') %>
+            </div>
+            </div>
+
+        <%- include('./partials/scripts.ejs') %> 
+            <script>
+            
+                console.log('funcionando');
+                let crecimiento_personal = parseInt(document.querySelector('#crecimiento_personal').textContent) 
+                let negocios_estudios = parseInt(document.querySelector('#negocios_estudios').textContent)
+                let familia = parseInt(document.querySelector('#familia').textContent)
+                let salud = parseInt(document.querySelector('#salud').textContent)
+                let amigos = parseInt(document.querySelector('#amigos').textContent)
+                let recreacion_diversion = parseInt(document.querySelector('#recreacion_diversion').textContent)
+                let amor = parseInt(document.querySelector('#amor').textContent)
+                let contribucion = parseInt(document.querySelector('#contribucion').textContent)
+                let finanzas = parseInt(document.querySelector('#finanzas').textContent)
+                let espiritual = parseInt(document.querySelector('#espiritual').textContent)
+                let user_id = parseInt(document.querySelector('#user_id').textContent)
+
+                let crecimiento_personalM = parseInt(document.querySelector('#crecimiento_personalM').textContent) 
+                let negocios_estudiosM = parseInt(document.querySelector('#negocios_estudiosM').textContent)
+                let familiaM = parseInt(document.querySelector('#familiaM').textContent)
+                let saludM = parseInt(document.querySelector('#saludM').textContent)
+                let amigosM = parseInt(document.querySelector('#amigosM').textContent)
+                let recreacion_diversionM = parseInt(document.querySelector('#recreacion_diversionM').textContent)
+                let amorM = parseInt(document.querySelector('#amorM').textContent)
+                let contribucionM = parseInt(document.querySelector('#contribucionM').textContent)
+                let finanzasM = parseInt(document.querySelector('#finanzasM').textContent)
+                let espiritualM = parseInt(document.querySelector('#espiritualM').textContent)
+
+                console.log(crecimiento_personal)
+               const chart = new Chart(document.getElementById("ruedaDeVida"), {
+                    
+                    "type": "radar",
+                    "data": {
+                        "labels": ['Crecimiento Personal', 'Negocios/Estudios', 'Familia', 'Salud', 'Amigos', 'Recreación/Diverción', 'Amor', 'Contribución', 'Finanzas', 'Espiritual'],
+                        "datasets": [{
+                            "label": "En este momento",
+                           "data": [crecimiento_personal, negocios_estudios, familia, 
+                                    salud, recreacion_diversion, amigos, amor, 
+                                    contribucion, finanzas, espiritual],
+                            "fill": true,
+                            "backgroundColor": "rgb( 174, 214, 241, 0.2)",
+                            "borderColor": "rgb( 174, 214, 241 )",
+                            "pointBackgroundColor": "rgb( 174, 214, 241 )",
+                            "pointBorderColor": "#fff",
+                            "pointHoverBackgroundColor": "#fff",
+                            "pointHoverBorderColor": "rgb( 174, 214, 241 )"
+                        },
+                        {
+                            "label": "Mi meta",
+                            "data": [crecimiento_personalM, negocios_estudiosM, familiaM, 
+                                    saludM, recreacion_diversionM, amigosM, amorM, 
+                                    contribucionM, finanzasM, espiritualM],
+                            "fill": true,
+                            "backgroundColor": "rgb( 249, 231, 159, 0.2)",
+                            "borderColor": "rgb( 249, 231, 159 )",
+                            "pointBackgroundColor": "rgb( 249, 231, 159 )",
+                            "pointBorderColor": "#fff",
+                            "pointHoverBackgroundColor": "#fff",
+                            "pointHoverBorderColor": "rgb( 249, 231, 159 )"
+                        },
+                        {   
+                            "label": '\n',
+                            "data": [10,10,10,10,10,10,10,10,10,10],
+                            "fill": false,
+                            "backgroundColor": "transparent",
+                            "borderColor": "transparent",
+                            "pointBackgroundColor": "transparent",
+                            "pointBorderColor": "transparent",
+                            "pointHoverBackgroundColor": "transparent",
+                            "pointHoverBorderColor": "transparent",
+                            "pointHover": false
+                            
+                        }
+                    ]
+                    },
+                    "options": { "elements": { "line": { "tension": 0, "borderWidth": 3 } } }
+                });
+         
+            </script>
+            
+    </body>
+
+</html>

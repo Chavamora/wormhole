@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+    <body>
+
+        <%- include('./partials/header.ejs') %>
+
+            <div id="tripleItemGrid">
+
+                <%- include('./partials/leftSideBar.ejs') %>
+
+                    <div>
+                        <div class="info">
+                            <div id="profileCover">
+                                <p>Foto de portada</p>
+
+                                    <div id="profilePicture"> 
+                                        </div>
+                                
+                            </div>
+
+                            <div id="profileDescription">
+                                <h2 class="profileName"> <%= user.name%> </h2>
+                                <input type="text" placeholder="frase" id="profileInput">
+                                <div id="dropdowns">
+                                    <div>
+                                        <label for="cars">Experiencia:</label>
+
+                                        <select name="cars" id="cars" class="dropdowns">
+                                            <option value="volvo">Sé feliz</option>
+                                            <option value="saab">Sigue Luchando</option>
+                                            <option value="mercedes">Hasta el fin</option>
+                                            <option value="audi">Levántate</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="dia">Por dia:</label>
+
+                                        <select name="dia" id="carss" class="dropdowns">
+                                            <option value="volvo">Semanal</option>
+                                            <option value="saab">Mensual</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <a href="#" class="button">
+                                    <p>¿Qué experiencia quieres compartir?</p>
+                                </a>
+                                <br>
+                                <a href="#" class="button">
+                                    <p>¿Qué experiencia quieres compartir?</p>
+                                </a>
+                                <br>
+                                <a href="#" class="button">
+                                    <p>¿Qué experiencia quieres compartir?</p>
+                                </a>
+                                <br>
+                                <a href="#" class="button">
+                                    <p>¿Qué experiencia quieres compartir?</p>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <%- include('./partials/rightSideBar.ejs') %>
+
+            </div>
+            </div>
+            <%- include('./partials/scripts.ejs') %> 
+
+    </body>
+
+</html>

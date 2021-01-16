@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('./partials/head.ejs') %>
+
+<body>
+
+    <%- include('./partials/header.ejs') %>
+
+
+    <div id="tripleItemGrid">
+        <%- include('./partials/leftSideBar.ejs') %>
+
+        <div>
+            <div class="info">
+                <form action="/hobbies" method="POST">
+                    <label for="nombre">nombre:</label>
+                    <input type="text" id="addInput" name ="nombre" required>
+                    <label for="descripcion">descripcion:</label>
+                    <input type="text" id="addInput"  name="descripcion" required>
+                    <label for="notas">notas:</label>
+                    <textarea id="addInput" name="notas" required></textarea>
+
+                    <button id="addButton"> Agregar  </button>
+                </form>
+            </div>   
+        </div>
+        <%- include('./partials/rightSideBar.ejs') %>
+
+
+    </div>
+</div>
+<%- include('./partials/scripts.ejs') %> 
+
+</body>
+
+</html>

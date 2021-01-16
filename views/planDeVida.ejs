@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('./partials/head.ejs') %>
+
+
+<body>
+
+    <%- include('./partials/header.ejs') %>
+
+
+    <div id="tripleItemGrid">
+        <%- include('./partials/leftSideBar.ejs') %>
+
+        <div>
+
+            <div class="info">
+                <h2>Tus metas</h2>
+
+                <div class="flex-table">
+                    <div class="flex-item first">
+                        <p> Responsable </p>
+                    </div>
+                    <div class="flex-item first">
+                        <p> Prioridad </p>
+                    </div>
+                    <div class="flex-item first">
+                        <p> estado </p>
+                    </div>
+                    <div class="flex-item first">
+                        <p> fecha de inicio </p>
+                    </div>
+                    <div class="flex-item first">
+                        <p> fecha final </p>
+                    </div>
+                </div>
+          
+                <%const userMetas = metas.filter(meta => meta.user_id === user_id);%>
+
+                <% if (userMetas.length > 0) { %>
+                    <% userMetas.forEach(meta => { %>
+                        <a class="single" href="/metas/<%= meta._id%>">
+                        <div class="flex-table">
+                            <div class="flex-item">
+                                <p ><%=meta.responsable%></p>
+                            </div>
+                            <div class="flex-item">
+                                <p ><%=meta.prioridad%></p>
+                            </div>
+                            <div class="flex-item">
+                                <p ><%=meta.estado%></p>
+                            </div>
+                            <div class="flex-item">
+                                <p ><%=meta.fecha_inicio%></p>
+                            </div>
+                            <div class="flex-item">
+                                <p ><%=meta.fecha_final%></p>
+                            </div>
+                        </div>   
+                        </a>
+                    <% }) %>
+                    <a href="/planDeVida/agregarMeta">agregar meta</a>
+
+                <% } else { %>
+                    <p> No hay metas que mostrar ):</p>
+                    <a href="/planDeVida/agregarMeta">agregar meta</a>
+                <% } %>
+
+        </div>
+        </div>
+
+        <%- include('./partials/rightSideBar.ejs') %>
+
+    </div>
+</div>
+<%- include('./partials/scripts.ejs') %> 
+
+</body>
+
+</html>
