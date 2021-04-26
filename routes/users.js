@@ -195,12 +195,16 @@ router.post('/search', (req,res) => {
    });
 
 
+
+
+
 //logout
 router.get('/logout',(req,res)=>{
     req.logout();
 req.flash('success_msg','tu sesión se ha cerrado');
 res.redirect('/users/login');
  });
+
 
 router.use('/:id', (req, res) => {
     

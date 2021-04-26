@@ -102,6 +102,9 @@ console.log(materia);
         })
 });
 
+app.get('/faqs'), (req, res)=>{
+    res.render('faqs', {title: 'Preguntas frecuentes'})
+}
 
 
 app.get('/planDeVida', (req, res) => {
@@ -112,7 +115,7 @@ app.get('/planDeVida', (req, res) => {
         res.render('planDeVida', {title: 'tus metas', metas: result, user_id: user })
     })
     .catch((err) => {
-        console.log(err);
+        console.log(err); 
     })
 
 });

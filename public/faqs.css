@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    z-index: 10;
+    top: 0;
+    width: 100%;
+    position: fixed;
+    background-image: linear-gradient(120deg, rgba(161, 196, 253, 0.664) 0%, rgba(194, 233, 251, 0.705) 100%);
+    font-family: 'Quicksand', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+
+}
+
+i {
+    font-family: 'Montserrat', sans-serif;
+}
+
+footer {
+    background-color: rgb(44, 44, 44);
+    color: white;
+    padding: 5em 4em 5em 4em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+footer p{
+    border-left: rgba(161, 196, 253, 0.664) 5px solid;
+    padding-left: 2em;
+    
+}
+
+#navContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+}
+
+#navBar {
+    width: 50%;
+    display: flex;
+}
+
+#navList {
+    width: 100%;
+    justify-content: space-around;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.navListItem{
+    margin-left: 2em;
+    padding: 1%;
+    border-radius: 2em;
+    width: 100%;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 100;
+}
+
+.navListItem:hover{
+    background: linear-gradient(#7F99F5, #506CF5);
+    color: #fff;
+}
+
+.general{
+    margin: auto;
+    margin-top:4em;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo{
+    margin: 1em 2em 1em 2em;
+    font-weight: 900;
+}
+
+.preguntas{
+    text-align: justify;
+    width: 150%;
+}
+
+.border{
+    width: 100%;
+    align-self: flex-start;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    border-bottom: 1px gray solid;
+}
+
+.pregunta{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 3em;
+    padding-top: 3em;
+}
+
+.right-footer {
+    color: white;
+    align-self: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.icons svg {
+    margin-right: 2em;
+    
+}
+
+.icons a {
+    color: white;
+}
+
+footer a {
+    color:rgba(161, 196, 253, 0.664);
+    font-size: 90%;
+}
+
+#sugerenciaForm {
+    margin-top: 3em;
+    width: 150%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3em;
+}
+
+#sugerenciaForm label {
+    padding-bottom: 1em;
+}
+
+#sugerenciaPregunta {
+    border: none;
+    padding: 2% 1% 2% 1%;
+    border-bottom: 1px solid gray;
+    outline: none;
+}
+
+#sugerenciaSubmit{    
+    width: 20%;
+    margin-top: 2em;
+    align-self: center;
+}
