@@ -20,7 +20,7 @@ const RuedaDeVidaM = require("./models/ruedaDeVidaM.js");
 const Blog = require("./models/blog.js");
 const Pregunta = require("./models/pregunta.js");
 const { Console } = require('console');
-
+const PORT = process.env.PORT || 3000;
 
 
 
@@ -31,7 +31,7 @@ const app = express();
 //connect to mongodb
 const dbURL = 'mongodb+srv://beto:test1234@nodetuts.jy1sr.mongodb.net/node-tuts?retryWrites=true&w=majority';
 mongoose.connect(dbURL, {useNewUrlParser: true, useUnifiedTopology: true})
-    .then((result) => app.listen(3000))
+    .then((result) => app.listen(PORT))
     .catch((err) => console.log(err));
     //register view engine
 app.set('view engine', 'ejs');
