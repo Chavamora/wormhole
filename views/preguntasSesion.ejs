@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="faqs.css">
+    <link rel="stylesheet" href="../faqs.css">
     <title>Preguntas Frecuentes</title>
 </head>
 
-<body>
+<body id="page-container">
 
     <header>
         <div id="navContainer">
@@ -29,90 +29,92 @@
         <!-- <img src="/img/bx-menu-alt-left.svg" class="hamburguer"> -->
     </header>
 
-    <div class="general">
-        <h1 class="titulo">Preguntas Frecuentes </h1>
-        <div class="preguntas">
-            <div class="pregunta">
-                <p class="fecha-pregunta">10 de junio del 2021</p>
-                <h2 class="titulo-pregunta">¿Qué es Wormhole Plan?</h2>
-                <div class="border"> </div>
 
-                <p class="respuesta-pregunta">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat
-                    ipsum sed tellus scelerisque, sit amet laoreet tellus mollis. Suspendisse consectetur nunc in odio
-                    pellentesque sodales. Ut malesuada orci vitae augue vehicula tempus. Suspendisse tristique id urna
-                    in blandit.</p>
-            </div>
+    <div id="page-container">
+        <div class="general">
+            <h1 class="titulo">Preguntas Frecuentes </h1>
+            <div class="preguntas">
 
 
-            <div class="pregunta">
+                
+                <% if (preguntas.length> 0) { %>
+                    <% preguntas.forEach(pregunta=> { %>
 
-                <p class="fecha-pregunta">13 de enero del 2020</p>
-                <h2 class="titulo-pregunta">¿Como uso Wormhole Plan?</h2>
-                <div class="border"> </div>
+                        <!-- validar tipo de usuario -->
 
-                <p class="respuesta-pregunta">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat
-                    ipsum sed tellus scelerisque,
-                    sit amet laoreet tellus mollis. Suspendisse consectetur nunc in odio pellentesque sodales. Ut
-                    malesuada orci vitae
-                    augue vehicula tempus. Suspendisse tristique id urna in blandit.</p>
+                        
 
+                                <div class="pregunta">
+                                    <p class="fecha-pregunta">
+                                        <%=pregunta.createdAt%>
+                                    </p>
+                                    <h2 class="titulo-pregunta">
+                                        <%=pregunta.titulo%>
+                                    </h2>
+                                    <div class="border"> </div>
 
-            </div>
+                                    <p class="respuesta-pregunta">
+                                        <%=pregunta.respuesta%>
+                                    </p>
+                                </div>
+                               
 
+                                <% }) %>
 
+                                    <% } else { %>
+                                        <p> Parece que no hay preguntas para mostrar! </p>
+                                        <% } %>
 
-
-            <div class="pregunta">
-                <p class="fecha-pregunta">22 de Diciembre del 2022</p>
-                <h2 class="titulo-pregunta">¿Como agrego a mis amigos en Wormhole Plan?</h2>
-                <div class="border"> </div>
-
-                <p class="respuesta-pregunta">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat
-                    ipsum sed tellus scelerisque,
-                    sit amet laoreet tellus mollis. Suspendisse consectetur nunc in odio pellentesque sodales.
-                    Ut malesuada orci vitae augue vehicula tempus. Suspendisse tristique id urna in blandit.</p>
-
-            </div>
-
-            <div class="pregunta">
-
-                <p class="fecha-pregunta">31 de marzo del 2018</p>
-                <h2 class="titulo-pregunta">¿Que problemas me puedo encontrar al usar Wormhola Plan?</h2>
-                <div class="border"> </div>
-                <p class="respuesta-pregunta">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat
-                    ipsum sed tellus scelerisque, sit amet laoreet tellus mollis. Suspendisse consectetur nunc in odio
-                    pellentesque sodales. Ut malesuada orci vitae augue vehicula tempus. Suspendisse tristique id urna
-                    in blandit.</p>
-
+                                        <% if (user.tipo == 2) {%>
+                                            <div id="edit" >
+                                                <a href="/faqs/editar" style="height: 30px;">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-pencil" viewBox="0 0 16 16" >
+                                                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                                      </svg>
+                                                </a>
+                                            </div>
+                                            <%} else {%>
+                                            <p> no sos editor >:c </p>
+                                            <%}%>
+                                            
 
             </div>
+            <!-- <form id="sugerenciaForm" action="/faqs" method="POST">
+                <label for="titulo">Escribe la Pregunta</label>
+                <input type="text" placeholder="Escribe la pregunta" name="titulo" id="sugerenciaPregunta"
+                    autocomplete="off">
+                    
+                <input type="submit" value="Enviar" id="sugerenciaSubmit">
+            </form> -->
         </div>
-        <form id="sugerenciaForm" action="POST">
-            <label for="sugerencia-pregunta">¿Tienes otra pregunta que crees importante y debería estar aquí?, escríbela
-                abajo</label>
-            <input type="text" placeholder="Escribe tu pregunta" name="sugerencia-pregunta" id="sugerenciaPregunta"
-                autocomplete="on">
-            <input type="submit" value="Enviar" id="sugerenciaSubmit">
-        </form>
     </div>
 
     <footer>
+
+
         <div>
             <p>Wormhole Plan® 2021</p>
             <p>Desarrollado por grandes mentes para grandes mentes</p>
-            <p>CEO Pene Moreno López</p>
+            <p>CEO José Leonardo Moreno López</p>
+            <p>Cofundador Salvador Alberto Mora Avilez</p>
+            <p>Cofundador Luis Adrian Rodriguez Valera</p>
+            <p>Cofundador Ismael Ruiz Carbajal</p>
         </div>
 
-        <div class="right-footer">
-            
-                <ul class="footer-nav">
-                    <i><a href="#">Acerca de</a></i>
-                    <i><a href="#">Conócenos</a></i>
-                    <i><a href="#">Privacidad</a></i>
-                    <i><a href="#">Preguntas Frecuentes</a></i>
 
-                </ul>
-           
+
+        <div class="right-footer">
+
+
+            <ul class="footer-nav">
+                <i><a href="#">Acerca de</a></i>
+                <i><a href="#">Conócenos</a></i>
+                <i><a href="#">Privacidad</a></i>
+                <i><a href="#">Preguntas Frecuentes</a></i>
+
+            </ul>
+
+
             <div class="icons">
 
                 <a href="https://www.facebook.com/Wormholeplan/" target="_blank">
@@ -161,7 +163,7 @@
                             d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
                     </svg>
                 </a>
-                
+
                 <!-- <img src="https://img.icons8.com/windows/32/000000/facebook-new.png" />
         <img src="https://img.icons8.com/android/32/000000/twitter.png"/>
         <img src="https://img.icons8.com/doodle/48/000000/tiktok--v1.png"/>
@@ -171,7 +173,11 @@
             </div>
 
         </div>
-        <img src="https://media.tenor.com/images/286d272451031e3c68dc46500d644482/tenor.gif" alt="rem  OwO" style="width: 5%; height: 5%;">
+
+        <img src="https://c.tenor.com/7WbRvUKO9JUAAAAj/ram-png.gif" alt="ram OwO" style="width: 5%; height: 5%;">
+        <img src="https://media.tenor.com/images/286d272451031e3c68dc46500d644482/tenor.gif" alt="rem  OwO"
+            style="width: 5%; height: 5%;">
+
     </footer>
 
 </body>

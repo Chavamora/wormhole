@@ -28,11 +28,22 @@ i {
 footer {
     background-color: rgb(44, 44, 44);
     color: white;
-    padding: 5em 4em 5em 4em;
+    padding: 5% 4% 5% 4%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    width: 92%;
+    
 }
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+  }
+
+  
 
 footer p{
     border-left: rgba(161, 196, 253, 0.664) 5px solid;
@@ -81,6 +92,7 @@ footer p{
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 20rem;
 }
 
 .titulo{
@@ -140,9 +152,10 @@ footer a {
 
 #sugerenciaForm label {
     padding-bottom: 1em;
+    margin-top:1em ;
 }
 
-#sugerenciaPregunta {
+.sugerenciaPregunta {
     border: none;
     padding: 2% 1% 2% 1%;
     border-bottom: 1px solid gray;
@@ -153,4 +166,58 @@ footer a {
     width: 20%;
     margin-top: 2em;
     align-self: center;
+}
+
+#edit {
+    background-color:rgba(161, 196, 253);
+    width: 55px;
+    height: 55px;
+    padding: 1px;
+    color: white;
+    border-radius: 9999em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 70%;
+    top: 60%;
+}
+
+.pregunta-botones {
+    display: flex;
+    width: 100%;
+    
+}
+
+.botones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10%;
+    flex-direction: column;
+}
+
+.botones :nth-child() {
+    width: 100%;
+}
+
+.botones a {
+    display: flex;
+    margin-right: 5%;
+}
+
+#modificar {
+    background-color: rgba(161, 196, 253);
+    padding: 10%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+#borrar {
+    background-color: rgb(255, 68, 109);
+    padding: 10%;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 25%;
 }

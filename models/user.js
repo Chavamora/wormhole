@@ -15,6 +15,10 @@ password :{
 date :{
     type : Date,
     default : Date.now
+},
+tipo: {
+    type: Number,
+    default: 1
 }
 });
 const User= mongoose.model('User',UserSchema);

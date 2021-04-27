@@ -18,6 +18,7 @@ const Deporte = require("./models/deporte.js");
 const RuedaDeVida = require("./models/ruedaDeVida.js");
 const RuedaDeVidaM = require("./models/ruedaDeVidaM.js");
 const Blog = require("./models/blog.js");
+const Pregunta = require("./models/pregunta.js");
 const { Console } = require('console');
 
 
@@ -70,8 +71,130 @@ app.get('/index', (req, res) => {
     res.render('index', {title: 'inicio'});
 });
 
+app.get('/faqs', (req, res)=>{
+    const user = req.session.passport.user;
+    console.log(user.name)
+
+    Pregunta.find().sort({ createdAt: -1})
+    .then((result) => {
+        res.render('preguntasSesion', {title: 'FAQS', preguntas: result, user_id: user, user: req.user,})
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+});
+
+app.get('/faqs/editar', (req, res)=>{
+    const user = req.session.passport.user;
+    console.log(user.name)
+
+    Pregunta.find().sort({ createdAt: -1})
+    .then((result) => {
+        res.render('editarPreguntas', {title: 'editar FAQS', preguntas: result, user_id: user, user: req.user})
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+});
+
+
+app.get('/index/faq', (req, res)=>{
+    Pregunta.find().sort({ createdAt: -1})
+    .then((result) => {
+        res.render('preguntas', {title: 'FAQS', preguntas: result})
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+});
+
+// app.get('/preguntas/borrar/:id', (req, res)=>{
+//    id = req.params.id
+
+//    Pregunta.findByIdAndDelete(id)
+//    .then(result => {
+//        res.json({redirect: '/faqs/editar'})
+//    })
+//    .catch(err => {
+//        console.log(err)
+//    })
+// });
+
+app.delete('/preguntas/borrar/:id', (req, res) => {
+    const id = req.params.id;
+
+    Pregunta.findByIdAndDelete(id)
+   .then(result => {
+  res.json({redirect: '/faqs/editar'})
+    
+   })
+   .catch(err => {
+       console.log(err)
+   })
+});
+
+app.get('/preguntas/modificar/:id', (req, res)=>{
+   const id = req.params.id;
+
+   Pregunta.findById(id)
+   .then(result => {
+
+    res.render('modificarPregunta', {title: 'modificar pregunta', pregunta: result, id });
+    console.log(result)
+   })
+   .catch(err => {
+       console.log(err)
+   })
+});
+
+app.post('/preguntas/modificar/:id', (req, res)=>{
+    const id = req.params.id;
+ 
+    console.log(req.body);
+    Pregunta.findByIdAndUpdate(
+
+        {_id: id}, 
+        {titulo: req.body.titulo,
+        respuesta: req.body.respuesta},
+        
+        
+        function(err, result) {
+            if(err) {
+                res.send(err);
+            } else {
+                res.redirect('/faqs/editar');
+            }
+        }
+    )
+    .catch(err => {
+        console.log(err)
+    })
+ });
+
+app.post('/faqs', (req, res)=> {
+    const user = req.session.passport.user;
+    const pregunta = new Pregunta(req.body);
+
+    pregunta['user_id'] = user;
+    console.log(pregunta);
+    console.log(req.body);
+
+    pregunta.save()
+    .then((result) => {
+        res.redirect('/faqs/editar');
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+
+});
+
+
+
 app.get('/estudio', (req, res) => {
     const user = req.session.passport.user;
+    console.log(user.name)
+
     Materia.find().sort({ createdAt: -1})
     .then((result) => {
         res.render('estudio', {title: 'tus materias', materias: result, user_id: user })
@@ -102,9 +225,7 @@ console.log(materia);
         })
 });
 
-app.get('/faqs'), (req, res)=>{
-    res.render('faqs', {title: 'Preguntas frecuentes'})
-}
+
 
 
 app.get('/planDeVida', (req, res) => {

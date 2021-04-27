@@ -528,8 +528,9 @@ border-collapse: collapse;
 }
 
 .gradient {
-    background-image: linear-gradient(to right bottom, #4a78bc, #5d84cb, #708fda, #839be9, #96a7f8);
+    background-image:url('./img/wormholelogopng.png');
     height: 100%;
+    
 }
 
 .login-form {

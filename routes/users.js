@@ -144,13 +144,17 @@ router.post('/login',(req,res,next)=>{
 router.get('/perfil', (req, res) => {
     console.log('buenas');
     const user = req.session.passport.user;
+    console.log(user.name)
             imgModel.find().sort({ createdAt: -1})
     .then((result) => {
+        console.log('buenas');
         console.log(items);
         res.render('perfil', {title: 'perfil', items: result, user_id: user })
         console.log(items);
     })
     .catch((err) => {
+        console.log('buenas');
+
         console.log(err);
     })
 });
