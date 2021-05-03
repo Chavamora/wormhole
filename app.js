@@ -29,7 +29,7 @@ require("./config/passport")(passport)
 //express app
 const app = express();
 //connect to mongodb
-const dbURL = 'mongodb+srv://beto:test1234@nodetuts.jy1sr.mongodb.net/node-tuts?retryWrites=true&w=majority';
+const dbURL = 'mongodb+srv://beto:1h6TcUceQzGynIJb@nodetuts.jy1sr.mongodb.net/node-tuts?retryWrites=true&w=majority';
 mongoose.connect(dbURL, {useNewUrlParser: true, useUnifiedTopology: true})
     .then((result) => app.listen(PORT))
     .catch((err) => console.log(err));

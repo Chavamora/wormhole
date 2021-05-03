@@ -159,7 +159,7 @@
 
         <!-- <img src="https://c.tenor.com/7WbRvUKO9JUAAAAj/ram-png.gif" alt="ram OwO" style="width: 5%; height: 5%;">
         <img src="https://media.tenor.com/images/286d272451031e3c68dc46500d644482/tenor.gif" alt="rem  OwO" -->
-            style="width: 5%; height: 5%;">
+            <!-- style="width: 5%; height: 5%;"> -->
 
     </footer>
 
@@ -170,12 +170,12 @@
    
     const trashcan = document.querySelectorAll('.delete');
 
-    trashcan.forEach(trash => {
+     trashcan.forEach(trash => {
         trash.addEventListener('click', (e) => {
         const endpoint = `/preguntas/borrar/${trash.dataset.doc}`;
         console.log('click')
         fetch(endpoint, {
-            method: 'DELETE'
+             method: 'DELETE'
         })
         .then((response) => response.json())
         .then((data) => window.location.href=data.redirect)
@@ -184,6 +184,8 @@
     });
 
     
+
+
 </script>
 
 </html>
